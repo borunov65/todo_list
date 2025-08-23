@@ -1,0 +1,8 @@
+exclude =
+    .venv,
+    venv,
+    __pycache__,
+    migrations,
+    static,
+    media
+max-line-length = 120
