@@ -8,7 +8,7 @@ from todo.views import (
     TaskCreateView,
     TaskUpdateView,
     TaskDeleteView,
-    toggle_task_status,
+    ToggleTaskStatusView,
 )
 
 urlpatterns = [
@@ -30,7 +30,7 @@ urlpatterns = [
     ),
     path(
         'tasks/<int:pk>/toggle/',
-        toggle_task_status,
+        ToggleTaskStatusView.as_view(),
         name='toggle-task-status'
     ),
 ]

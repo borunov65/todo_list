@@ -24,12 +24,15 @@
             {% endif %}
           </div>
           <div>
-            {% if task.is_done %}
-              <a href="{% url 'todo:toggle-task-status' pk=task.id %}" class="btn btn-sm btn-secondary">Undo</a>
-            {% else %}
-              <a href="{% url 'todo:toggle-task-status' pk=task.id %}" class="btn btn-sm btn-success">Complete</a>
-            {% endif %}
-          </div>
+            <form action="{% url 'todo:toggle-task-status' pk=task.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                {% if task.is_done %}
+                    <button type="submit" class="btn btn-sm btn-secondary">Undo</button>
+                {% else %}
+                    <button type="submit" class="btn btn-sm btn-success">Complete</button>
+                {% endif %}
+            </form>
+</div>
         </div>
         </td>
       </tr>
